@@ -1,4 +1,6 @@
 ﻿using Demo.Inheritance;
+using System;
+using Common;
 
 namespace Demo
 {
@@ -31,7 +33,10 @@ namespace Demo
             //Console.WriteLine($"Product = {C1.Product()}"); 
             #endregion
 
-
+            TypeA obj = new TypeA();
+            // obj.X = 1;   // "X is Private"
+            // obj.Y = 5;   // "Y is Private"
+            // obj.Z = 5;   // "Z is internal"
         }
     }
 }
