@@ -1,6 +1,7 @@
 ﻿using Demo.Inheritance;
 using System;
 using Common;
+using Demo.Polymorphism_Overriding;
 
 namespace Demo
 {
@@ -65,7 +66,20 @@ namespace Demo
 
             #endregion
 
+            #region Polymorphism => 2. Function Overriding
 
+            //TypeA02 TypeA = new TypeA02(1);
+            //TypeA.A = 11;
+            //TypeA.MyFun01();
+            //TypeA.MyFun02();
+
+            //TypeB02 TypeB = new TypeB02(1,2);
+            //TypeB.A = 11;
+            //TypeB.B = 22;
+            //TypeB.MyFun01();
+            //TypeB.MyFun02();
+
+            #endregion
         }
     }
 }
