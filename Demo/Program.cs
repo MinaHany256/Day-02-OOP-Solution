@@ -33,10 +33,19 @@ namespace Demo
             //Console.WriteLine($"Product = {C1.Product()}"); 
             #endregion
 
+            #region Access Modifiers
             TypeA obj = new TypeA();
             // obj.X = 1;   // "X is Private"
             // obj.Y = 5;   // "Y is Private"
-            // obj.Z = 5;   // "Z is internal"
+            // obj.Z = 5;   // "Z is internal" 
+            #endregion
+
+            #region Association
+
+
+
+            #endregion
+
         }
     }
 }
