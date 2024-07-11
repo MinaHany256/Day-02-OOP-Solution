@@ -5,6 +5,39 @@ using Demo.Polymorphism_Overriding;
 
 namespace Demo
 {
+    class Employee
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public int Age { get; set; }    
+
+        public void MyFun01()
+        {
+            Console.WriteLine("I am Employee");
+        }
+
+        public virtual void MyFun02() 
+        {
+            Console.WriteLine($"Employee: Id:{Id}, Name: {Name}, Age: {Age}");
+        }
+    }
+
+    class FullTimeEmployee : Employee
+    {
+        public decimal Salary { get; set; }
+
+        public new void MyFun01()
+        {
+            Console.WriteLine("I am FullTime Employee");
+        }
+
+        public override void MyFun02()
+        {
+            Console.WriteLine($"FullTime Employee: Id:{Id}, Name: {Name}, Age: {Age}, Salary: {Salary:C}"); ;
+        }
+
+    }
+
     internal class Program
     {
         #region Polymorphism => 1. Function Overloading
@@ -19,6 +52,14 @@ namespace Demo
         }
         #endregion
 
+        public static void ProcessEmployee(FullTimeEmployee employee)
+        {
+            if(employee is not null)
+            {
+                employee.MyFun01();
+                employee.MyFun02();
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -104,6 +145,19 @@ namespace Demo
             //TypeB = (TypeB02) TypeA;
 
             #endregion
+
+
+            FullTimeEmployee fullTimeEmployee = new FullTimeEmployee()
+            {
+                Id = 10,
+                Name = "Ahmed",
+                Age = 23,
+                Salary = 5_000
+            };
+
+            ProcessEmployee(fullTimeEmployee);
+
+
 
 
         }
