@@ -92,6 +92,18 @@ namespace Demo
             //RefBase.MyFun02(); 
             #endregion
 
+            #region Not Binding
+
+            //// Binding
+            //TypeA02 TypeA;
+            //TypeA = new TypeA02(1);
+            //TypeA = new TypeB02(1,2);
+
+            //// Not Binding
+            //TypeB02 TypeB;
+            //TypeB = (TypeB02) TypeA;
+
+            #endregion
 
 
         }
