@@ -10,15 +10,41 @@
         M,F
     }
 
+    class HireDate
+    {
+        public int Day { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set; }
+
+        public HireDate(int day, int month, int year)
+        {
+            Day = day;
+            Month = month;
+            Year = year;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0:D2}/{1:D2}/{2}", Day, Month, Year);
+        }
+
+    }
+
+
     class Employee
     {
         public int Id { get; set; }
         public string? Name { get; set; }
         public SecurityLevel SecurityLevel { get; set; }
         public decimal Salary { get; set; }
-        public string? HireDate { get; set; }
+        public HireDate HireDate { get; set; }
         public Gender Gender { get; set; }
 
+
+        public Employee(HireDate HireDate)
+        {
+            this.HireDate = HireDate;
+        }
 
         public override string ToString()
         {
@@ -35,13 +61,14 @@
         static void Main(string[] args)
         {
 
-            Employee employee = new Employee()
+            HireDate hireDate = new HireDate(25,6,2003);
+
+            Employee employee = new Employee(hireDate)
             {
                 Id = 1,
                 Name = "Test",
                 SecurityLevel = SecurityLevel.guest,
                 Salary = 5_000,
-                HireDate = "25/6/2003",
                 Gender = Gender.M
             };
 
