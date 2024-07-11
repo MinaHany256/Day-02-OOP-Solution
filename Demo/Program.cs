@@ -5,18 +5,19 @@ using Demo.Polymorphism_Overriding;
 
 namespace Demo
 {
+    #region Binding
     class Employee
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public int Age { get; set; }    
+        public int Age { get; set; }
 
         public void MyFun01()
         {
             Console.WriteLine("I am Employee");
         }
 
-        public virtual void MyFun02() 
+        public virtual void MyFun02()
         {
             Console.WriteLine($"Employee: Id:{Id}, Name: {Name}, Age: {Age}");
         }
@@ -33,10 +34,26 @@ namespace Demo
 
         public override void MyFun02()
         {
-            Console.WriteLine($"FullTime Employee: Id:{Id}, Name: {Name}, Age: {Age}, Salary: {Salary:C}"); ;
+            Console.WriteLine($"FullTime Employee: Id:{Id}, Name: {Name}, Age: {Age}, Salary: {Salary:C}");
         }
 
     }
+
+    class PartTimeEmployee : Employee
+    {
+        public decimal HourRate { get; set; }
+
+        public new void MyFun01()
+        {
+            Console.WriteLine("I am PartTime Employee");
+        }
+
+        public override void MyFun02()
+        {
+            Console.WriteLine($"PartTime Employee: Id:{Id}, Name: {Name}, Age: {Age}, HourRate: {HourRate}");
+        }
+    } 
+    #endregion
 
     internal class Program
     {
@@ -52,14 +69,19 @@ namespace Demo
         }
         #endregion
 
-        public static void ProcessEmployee(FullTimeEmployee employee)
-        {
-            if(employee is not null)
-            {
-                employee.MyFun01();
-                employee.MyFun02();
-            }
-        }
+        #region Binding
+        //public static void ProcessEmployee(Employee employee)  /*Employee =  new FullTimeEmployee()*/
+        //{
+        //    if (employee is not null)
+        //    {
+        //        employee.MyFun01();   // Static Binded Method => I am Employee
+        //        employee.MyFun02();   // Dynamic Binded Method =>  Full Time in Case Sent FullTime
+        //    }
+        //} 
+        #endregion
+
+
+
 
         static void Main(string[] args)
         {
@@ -146,18 +168,27 @@ namespace Demo
 
             #endregion
 
+            #region Binding
+            //FullTimeEmployee fullTimeEmployee = new FullTimeEmployee()
+            //{
+            //    Id = 10,
+            //    Name = "Ahmed",
+            //    Age = 23,
+            //    Salary = 5_000
+            //};
 
-            FullTimeEmployee fullTimeEmployee = new FullTimeEmployee()
-            {
-                Id = 10,
-                Name = "Ahmed",
-                Age = 23,
-                Salary = 5_000
-            };
+            //ProcessEmployee(fullTimeEmployee);
 
-            ProcessEmployee(fullTimeEmployee);
+            //PartTimeEmployee partTimeEmployee = new PartTimeEmployee()
+            //{
+            //    Id = 20,
+            //    Name = "Mina",
+            //    Age = 30,
+            //    HourRate = 5 
+            //};
 
-
+            //ProcessEmployee(partTimeEmployee); 
+            #endregion
 
 
         }
