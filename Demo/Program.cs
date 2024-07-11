@@ -6,6 +6,19 @@ namespace Demo
 {
     internal class Program
     {
+        #region Polymorphism => 1. Function Overloading
+        public static int Sum(int X, int Y)
+        {
+            return X + Y;
+        }
+
+        public static int Sum(int X, int Y, int Z)
+        {
+            return X + Y + Z;
+        } 
+        #endregion
+
+
         static void Main(string[] args)
         {
             #region Class
@@ -45,6 +58,13 @@ namespace Demo
 
 
             #endregion
+
+            #region Polymorphism => 1. Function Overloading
+            //int Result = Sum(1, 2, 3);
+            //Console.WriteLine($"Sum = {Result}");
+
+            #endregion
+
 
         }
     }
