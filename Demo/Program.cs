@@ -16,7 +16,7 @@ namespace Demo
         public static int Sum(int X, int Y, int Z)
         {
             return X + Y + Z;
-        } 
+        }
         #endregion
 
 
@@ -80,6 +80,20 @@ namespace Demo
             //TypeB.MyFun02();
 
             #endregion
+
+            #region What is Binding?
+            // Binding
+            // Binding is a Behaviour
+            // Reference From Parent = Object From Child  [Binding Occurs]
+
+            //TypeA02 RefBase = new TypeB02(1, 2);
+            //RefBase.A = 11;
+            //RefBase.MyFun01();
+            //RefBase.MyFun02(); 
+            #endregion
+
+
+
         }
     }
 }
